@@ -3,12 +3,8 @@ import React from 'react';
 export const Header = ({
   onToggleSidebar = () => {},
   onOpenJson = () => {},
-  model1 = "Model Alpha",
-  model2 = "Model Beta",
-  judgeModel = "Arbiter-Pro AI",
-  onSelectModel1 = () => {},
-  onSelectModel2 = () => {},
-  onResetToDefault = () => {},
+  model1 = "Mistral",
+  model2 = "Cohere",
 }) => {
   return (
     <header className="h-16 px-4 md:px-6 bg-[#141414] border-b border-[#262626] flex items-center justify-between shrink-0 z-30">

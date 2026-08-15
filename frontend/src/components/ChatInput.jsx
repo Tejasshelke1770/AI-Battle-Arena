@@ -1,18 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export const ChatInput = ({
   onSendMessage = () => {},
   isLoading = false,
-  onSelectPrompt = () => {},
 }) => {
   const [inputText, setInputText] = useState('');
-
-  const sampleChips = [
-    { label: "Capital of India", prompt: "capital of india" },
-    { label: "Quantum Entanglement", prompt: "Explain quantum entanglement to a 5-year-old." },
-    { label: "React useEffect vs useLayoutEffect", prompt: "What is the difference between useEffect and useLayoutEffect in React?" },
-    { label: "Python vs Rust", prompt: "Compare Python and Rust for backend service development." },
-  ];
 
   const handleSubmit = (e) => {
     e?.preventDefault();
@@ -28,32 +20,9 @@ export const ChatInput = ({
     }
   };
 
-  const handleChipClick = (prompt) => {
-    setInputText(prompt);
-    onSendMessage(prompt);
-  };
-
   return (
-    <div className="w-full bg-[#161616]/95 backdrop-blur-md border-t border-[#262626] px-4 md:px-6 py-3.5 z-20 shrink-0">
+    <div className="w-full bg-[#161616]/95 backdrop-blur-md border-t border-[#262626] px-4 md:px-6 py-3.5 z-20 shrink-0 ">
       <div className="max-w-4xl mx-auto space-y-2.5">
-        {/* Quick Suggestion Chips */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-          <span className="text-[11px] text-gray-500 font-mono shrink-0 flex items-center gap-1">
-            <span className="material-symbols-outlined text-[13px]">bolt</span>
-            Try:
-          </span>
-          {sampleChips.map((chip, idx) => (
-            <button
-              key={idx}
-              onClick={() => handleChipClick(chip.prompt)}
-              disabled={isLoading}
-              className="px-2.5 py-1 rounded-full bg-[#202020] hover:bg-[#2c2c2c] hover:border-cyan-500/40 text-gray-300 hover:text-white text-xs whitespace-nowrap border border-gray-700/50 transition-all active:scale-95 disabled:opacity-50"
-            >
-              {chip.label}
-            </button>
-          ))}
-        </div>
-
         {/* Input Form Bar */}
         <form onSubmit={handleSubmit} className="relative flex items-center">
           {/* Leading Icon */}

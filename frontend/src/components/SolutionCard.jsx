@@ -10,7 +10,6 @@ export const SolutionCard = ({
   latency = "180ms",
   tokens = "12 tokens",
   isWinner = false,
-  onVote = null,
   userVoted = false,
 }) => {
   const [copied, setCopied] = useState(false);
